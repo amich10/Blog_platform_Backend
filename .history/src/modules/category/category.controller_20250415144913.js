@@ -1,0 +1,25 @@
+import slugify from "slugify";
+import cloudinarySvc from "../../services/cloudinary.services";
+import categorySvc from "./category.service";
+
+class CategoryControl {
+    storeCategory = async(req,res,next) =>{
+        try {
+            let payload = await categorySvc.transformCreateCategory(req)
+            let data = await categorySvc.create(payload)
+
+            res.json({
+                data:data,
+                message:"Category created Successfuly",
+                status:"CATEGORY_CREATED"
+
+            })
+
+        } catch (exception) {
+            next(exception)
+        }
+    }
+}
+
+const categoryCtril = new CategoryControl()
+export default categoryCtril

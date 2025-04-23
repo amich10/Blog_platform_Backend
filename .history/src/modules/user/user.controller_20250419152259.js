@@ -1,0 +1,17 @@
+import cloudinarySvc from "../../services/cloudinary.services";
+
+class UserController {
+    createUser = async(req,res,next) =>{
+        try {
+            
+            let payload = req.body;
+            payload.image = await cloudinarySvc.fileUpload(req.file.up)
+
+        } catch (exception) {
+            
+        }
+    }
+}
+
+const userCtrl  = new UserController()
+export default userCtrl
