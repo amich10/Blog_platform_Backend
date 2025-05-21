@@ -7,8 +7,6 @@ import helmet from "helmet";
 
 const app = express();
 
-
-
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -19,16 +17,14 @@ app.use(
 // ✅ Rate limiting and helmet before routes
 const limiter = rateLimit({
   windowMs: 1 * 60 * 1000, // 1 minute
-  limit: 30,
+  max: 1000
 });
 app.use(limiter);
 app.use(helmet());
 
-
 // Parsers
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 
 // Versioning
 app.use("/api/v1", router);

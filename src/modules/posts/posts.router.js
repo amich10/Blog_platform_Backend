@@ -16,11 +16,12 @@ postRouter.get('/:slug',allowUsers(),postCtrl.getpostDetailBySlug)
 postRouter.get('/all/published-posts',allowUsers(),postCtrl.getPublishedposts)
 
 
-postRouter.patch('/update/:id',allowUsers([userRoles.ADMIN,userRoles.AUTHOR]),uploader().array('image'),bodyValidator(updatePostDTO),postCtrl.updatepostById)
-postRouter.delete('/delete/:id',allowUsers([userRoles.ADMIN,userRoles.AUTHOR]),postCtrl.deleteCatgoryById)
+postRouter.patch('/update/:slug',allowUsers(),uploader().array('image'),bodyValidator(updatePostDTO),postCtrl.updatepostById)
+postRouter.delete('/delete/:id',allowUsers(),postCtrl.deleteCatgoryById)
 postRouter.patch('/like/:slug', allowUsers(), postCtrl.likePost);
 postRouter.patch('/unlike/:slug', allowUsers(), postCtrl.unlikePost)
 postRouter.patch('/view/:slug', allowUsers(), postCtrl.incrementViews);
+postRouter.get('/:id/posts',allowUsers(),postCtrl.showAllPostMadeByUser)
 
 
 
