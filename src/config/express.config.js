@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://blog-frontend-nu-ten.vercel.app/",
     credentials: true, // needed if using cookies or Authorization headers
   })
 );
