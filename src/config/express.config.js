@@ -9,7 +9,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://blog-frontend-eta-ten.vercel.app/",
+    origin: "https://blog-frontend-eta-ten.vercel.app",
     credentials: true, // needed if using cookies or Authorization headers
   })
 );
