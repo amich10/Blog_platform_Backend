@@ -3,8 +3,8 @@ import { mongoDbConfig } from "./constants.js";
 
 const dbInit = async () => {
   try {
-    console.log(mongoDbConfig.mongoUri)
-    await mongoose.connect(mongoDbConfig.mongoUri, {
+    console.log(process.env.MONGODB_URL)
+    await mongoose.connect(process.env.MONGODB_URL, {
       dbName: mongoDbConfig.mongoDbName,
       autoCreate: true,
       autoIndex: true,
