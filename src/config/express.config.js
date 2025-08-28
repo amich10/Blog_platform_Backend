@@ -66,4 +66,8 @@ app.use((error, req, res, next) => {
   });
 });
 
+app.get("/",(req,res) =>{
+  res.send("The server is running")
+})
+
 export default app;
