@@ -7,9 +7,17 @@ export const cloudinaryConfig ={
     api_secret: process.env.CLOUDINARY_API_SECRET
 }
 
+export const mongoDbConfig = {
+    mongoUri:process.env.MONGODB_URL,
+    mongoDbName:process.env.MONGODB_DB_NAME
+}
 export const dbConfig ={
-    mongoDB_url: process.env.MONGODB_URL,
-    dbName: process.env.MONGODB_DB_NAME
+   databaseName: process.env.DB_NAME,
+    dialect: process.env.DB_DIALECT,
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    host: process.env.DB_HOST,
+    port:process.env.DB_PORT 
 }
 
 export const smtpConfig = {

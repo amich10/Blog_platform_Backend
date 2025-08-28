@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
-import { dbConfig } from "./constants.js";
+import { mongoDbConfig } from "./constants.js";
 
 const dbInit = async () => {
   try {
-    await mongoose.connect(dbConfig.mongoDB_url, {
-      dbName: dbConfig.dbName,
+    console.log(mongoDbConfig.mongoUri)
+    await mongoose.connect(mongoDbConfig.mongoUri, {
+      dbName: mongoDbConfig.mongoDbName,
       autoCreate: true,
       autoIndex: true,
     });
